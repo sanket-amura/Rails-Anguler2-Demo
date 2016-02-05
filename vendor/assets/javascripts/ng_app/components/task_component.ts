@@ -33,7 +33,7 @@ import {Component, bootstrap, provide, NgFor} from 'angular2/angular2';
 
 @Component({
 
-    selector: 'tasks',
+    selector: 'mainroot',
 
     templateUrl: 'assets/ng_app/templates/tasks/index.html',
 
