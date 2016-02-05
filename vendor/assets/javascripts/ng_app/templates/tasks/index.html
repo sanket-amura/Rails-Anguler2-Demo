@@ -1,0 +1,23 @@
+<div class="page-header">
+  <h1>Tasks</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th> ID </th>
+      <th> Description </th>
+      <th> Priority </th>
+      <th> </th>
+      <th> Actions </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ng-for="#task of tasks">
+      <td>{{ task.id }}</td>
+      <td>{{ task.description }}</td>
+      <td>{{ task.priority }}</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
