@@ -5,7 +5,7 @@ System.config({
   //use typescript for compilation
 
   transpiler: 'typescript',
-  baseUrl: '/assets',
+  // baseUrl: '/assets',
 
   //typescript compiler options
 
@@ -13,6 +13,21 @@ System.config({
 
     emitDecoratorMetadata: true
 
+  },
+  packages: {
+    app: {
+      defaultExtension: 'ts'
+    }
   }
 
 });
+
+// System.config({
+//   baseUrl: '/assets',
+//   packages: {
+//     app: {
+//       format: 'register',
+//       defaultExtension: 'js'
+//     }
+//   }
+// });

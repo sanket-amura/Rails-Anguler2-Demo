@@ -15,14 +15,25 @@
 //= require twitter/bootstrap
 //= require turbolinks
 
-// require tools/traceur-runtime.js
-//= require tools/system
-//= require tools/typescript
+//= require angular/es6-shim.min
+//= require angular/system-polyfills
+//= require angular/angular2-polyfills
+//= require angular/system
+//= require angular/typescript
+//= require angular/Rx
+//= require angular/angular2.dev
+//= require angular/http
 
-//= require ng_app/config
+//    <!-- Add the router library -->
 
-//= require angular2/angular2.dev
-//= require angular2/router.dev
+//= require angular/router.dev
 
-  System.import('assets/ng_app/app.ts');
-  // System.import('/assets/app/bootstrap');
+System.config({
+  transpiler: 'typescript',
+  typescriptOptions: { emitDecoratorMetadata: true },
+  packages: {'ng_app': {defaultExtension: 'ts'}},
+  baseUrl: 'assets/'
+});
+
+
+System.import('assets/ng_app/main.ts').then(null, console.error.bind(console));
