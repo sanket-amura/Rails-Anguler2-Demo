@@ -1,23 +1,33 @@
 <div class="page-header">
   <h1>Tasks</h1>
+  <!-- <a [routerLink]="['./NewTask']" class='btn'> -->
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th> ID </th>
+      <!-- <th> ID </th> -->
       <th> Description </th>
       <th> Priority </th>
+      <th> Status </th>
       <th> </th>
       <th> Actions </th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="#task of tasks">
-      <td>{{ task.id }}</td>
+      <!-- <td>{{ task._id.$oid }}</td> -->
       <td>{{ task.description }}</td>
       <td>{{ task.priority }}</td>
+      <td>
+        <span *ngIf="task.is_completed">
+          Completed
+        </span>
+        <span *ngIf="!task.is_completed">
+          Incompleted
+        </span>
+      </td>
       <td> </td>
-      <td> </td>
+      <td> <a > Show </a> </td>
     </tr>
   </tbody>
 </table>

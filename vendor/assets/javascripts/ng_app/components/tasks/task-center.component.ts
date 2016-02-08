@@ -2,20 +2,21 @@ import {Component}     from 'angular2/core';
 import {RouteConfig, RouterOutlet} from 'angular2/router';
 
 import { TasksListComponent }   from './tasks-list.component.ts';
+// import { NewTaskComponent } form './new-task.component.ts';
 // import {CrisisDetailComponent} from './crisis-detail.component.ts';
 // import {HTTP_PROVIDERS, Http} from 'angular2/http';
-import {TasksService}         from './tasks.service.ts';
+// import {TasksService}         from './tasks.service.ts';
 
 @Component({
   template: `
     <router-outlet></router-outlet>
     `,
   directives: [RouterOutlet],
-  providers: [TasksService]
+  // providers: []
 })
 @RouteConfig([
   { path: '/', name: 'TasksCenter', component: TasksListComponent, useAsDefault: true }
-  // { path: '/:id', name: 'TaskDetail', component: TaskDetailComponent }
+  // { path: '/new', name: 'NewTask', component: NewTaskComponent }
 ])
 export class TaskCenterComponent {}
 

@@ -1,7 +1,7 @@
 
 import {Injectable} from 'angular2/core';
 
-// import {HTTP_PROVIDERS, Http} from 'angular2/http';
+import {HTTP_PROVIDERS, Http} from 'angular2/http';
 
 export class Tasks {
   constructor(
@@ -49,10 +49,9 @@ var tasks = [
     new Tasks('4', 'Release Deadline Looms', '', true, true)
 ];
 
-// var http = Http;
-// var tasks = Http.get('tasks.json').toRx().subscribe(res => {
-//       tasks = res.json();
-//     });
+var tasks = Http.get('tasks.json').toRx().subscribe(res => {
+      tasks = res.json();
+    });
 
 var tasksPromise = Promise.resolve(tasks);
 

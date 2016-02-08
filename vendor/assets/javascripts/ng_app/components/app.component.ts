@@ -9,13 +9,16 @@ import {HeroDetailComponent}   from './heroes/hero-detail.component.ts';
 import {DialogService}         from '../dialog.service.ts';
 import {HeroService}           from './heroes/hero.service.ts';
 
+import {Http, Headers} from 'angular2/http';
+import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
+
 // import {HTTP_PROVIDERS, Http} from 'angular2/http';
 
 @Component({
   selector: 'my-app',
   templateUrl: 'assets/ng_app/templates/header.html',
   providers:  [DialogService, HeroService],
-  directives: [ROUTER_DIRECTIVES]
+  directives: [ROUTER_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 @RouteConfig([
 
@@ -30,7 +33,9 @@ import {HeroService}           from './heroes/hero.service.ts';
   {path: '/hero/:id', name: 'HeroDetail', component: HeroDetailComponent},
   {path: '/disaster', name: 'Asteroid', redirectTo: ['CrisisCenter', 'CrisisDetail', {id:3}]}
 ])
-export class AppComponent { }
+export class AppComponent {
+  constructor(public http: Http) {}
+}
 
 
 /*

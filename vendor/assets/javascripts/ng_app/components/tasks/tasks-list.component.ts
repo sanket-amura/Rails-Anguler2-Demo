@@ -1,48 +1,38 @@
 
-import {Component, OnInit} from 'angular2/core';
-import {Task, TasksService} from './tasks.service.ts';
+import {Component, OnInit, Injectable} from 'angular2/core';
+// import {Task, TasksService} from './tasks.service.ts';
 import {Router, RouteParams} from 'angular2/router';
 
-// import {HTTP_PROVIDERS, Http} from 'angular2/http';
+import {HTTP_PROVIDERS, Http} from 'angular2/http';
 
-// @Injectable()
+@Injectable()
 
 @Component({
 
   templateUrl: 'assets/ng_app/templates/tasks/index.html'
 
-  //   template: `
-  //   <ul>
-  //     Tasks
-  //   </ul>
-  // `,
-    // viewProviders: [JSONP_PROVIDERS]
+  providers: [HTTP_PROVIDERS],
 
-  // providers: [HTTP_PROVIDERS],
-  // bindings: [HTTP_BINDINGS]
 })
 
-export class TasksListComponent implements OnInit {
-    tasks: Tasks[];
+export class TasksListComponent {
 
-    private _selectedId: number;
+  tasks: Object[];
 
-    constructor(
-        private _service: TasksService,
-        private _router: Router,
-        routeParams: RouteParams) {
-        this._selectedId = +routeParams.get('id');
-    }
+  constructor(http: Http) {
+    http.get('http://localhost:3000/tasks.json').subscribe(res => {
+      this.tasks = res.json();
+    });
+  }
 
-    isSelected(t: Tasks) { return t.id === this._selectedId; }
-
-    ngOnInit() {
-        this._service.getCrises().then(tasks => this.tasks = tasks);
-    }
-
-    onSelect(t: Tasks) {
-        this._router.navigate(['TaskDetail', { id: t.id }]);
-    }
+  // public taskStatus(task: Object){
+  //   return if(task.is_completed) {
+  //     console.log('test')
+  //     'Completed'
+  //   } else {
+  //     'Incomplete'
+  //   };
+  // }
 }
 
 /*
