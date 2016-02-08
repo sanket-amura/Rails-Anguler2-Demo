@@ -18,6 +18,7 @@
 //= require angular/es6-shim.min
 //= require angular/system-polyfills
 //= require angular/angular2-polyfills
+// require angular/angular2-all.umd.dev
 //= require angular/system
 //= require angular/typescript
 //= require angular/Rx
@@ -31,7 +32,9 @@
 System.config({
   transpiler: 'typescript',
   typescriptOptions: { emitDecoratorMetadata: true },
-  packages: {'ng_app': {defaultExtension: 'ts'}},
+  packages: {
+    'ng_app': {defaultExtension: 'ts'},
+  },
   baseUrl: 'assets/'
 });
 

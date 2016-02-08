@@ -2,12 +2,14 @@ import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {CrisisCenterComponent} from './crisis-center/crisis-center.component.ts';
-// import {TaskIndexComponent} from './tasks/task-index.component.ts';
+import {TaskCenterComponent} from './tasks/task-center.component.ts';
 import {HeroListComponent}     from './heroes/hero-list.component.ts';
 import {HeroDetailComponent}   from './heroes/hero-detail.component.ts';
 
 import {DialogService}         from '../dialog.service.ts';
 import {HeroService}           from './heroes/hero.service.ts';
+
+// import {HTTP_PROVIDERS, Http} from 'angular2/http';
 
 @Component({
   selector: 'my-app',
@@ -23,7 +25,7 @@ import {HeroService}           from './heroes/hero.service.ts';
     component: CrisisCenterComponent,
     useAsDefault: true
   },
-  // { path: '/task/...', name: 'Task', component: TaskIndexComponent }
+  { path: '/tasks-center/...', name: 'TasksCenter', component: TaskCenterComponent },
   {path: '/heroes',   name: 'Heroes',     component: HeroListComponent},
   {path: '/hero/:id', name: 'HeroDetail', component: HeroDetailComponent},
   {path: '/disaster', name: 'Asteroid', redirectTo: ['CrisisCenter', 'CrisisDetail', {id:3}]}

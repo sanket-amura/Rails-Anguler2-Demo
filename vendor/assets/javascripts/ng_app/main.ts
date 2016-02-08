@@ -6,7 +6,9 @@ import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, APP_BASE_HREF} from 'angular2/route
 
 import {AppComponent}     from './components/app.component.ts';
 
-bootstrap( AppComponent, [ROUTER_PROVIDERS, provide(APP_BASE_HREF, { useValue: '/#/' }]);
+// import {HTTP_PROVIDERS, Http} from 'angular2/http';
+
+bootstrap(AppComponent, [ROUTER_PROVIDERS, provide(APP_BASE_HREF, { useValue: '/#/' }]);
 
 
 /*

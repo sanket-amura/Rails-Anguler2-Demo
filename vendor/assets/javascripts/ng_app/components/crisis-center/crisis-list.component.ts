@@ -13,6 +13,7 @@ import {Router, RouteParams} from 'angular2/router';
       </li>
     </ul>
   `,
+
 })
 export class CrisisListComponent implements OnInit {
   crises: Crisis[];
