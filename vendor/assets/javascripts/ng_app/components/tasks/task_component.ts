@@ -5,7 +5,7 @@ import {HTTP_BINDINGS, Http} from 'angular2/http';
 @Component({
   selector: 'mainroot',
   bindings: [HTTP_BINDINGS],
-  template: `{{ people}}`,
+  template: `{{ people }}`,
   directives: [NgFor]
 })
 

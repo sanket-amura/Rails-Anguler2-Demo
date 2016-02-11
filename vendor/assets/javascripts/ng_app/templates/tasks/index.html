@@ -1,24 +1,26 @@
-<div class="page-header">
-  <h1>Tasks</h1>
-  <!-- <a [routerLink]="['./NewTask']" class='btn'> -->
-</div>
+<ul class="nav nav-tabs">
+  <li role="presentation" [ngClass]="{active: isOn, disabled: isDisabled}" ><a (click)='fetchAll()'> All </a></li>
+  <li role="presentation"> <a (click)='fetchCompleted()'> Completed </a></li>
+  <li role="presentation"> <a (click)='fetchIncompleted()'> Incompleted </a></li>
+</ul>
+
 <table class="table table-striped">
   <thead>
     <tr>
       <!-- <th> ID </th> -->
       <th> Description </th>
-      <th> Priority </th>
+      <!-- <th> Priority </th> -->
       <th> Status </th>
       <th> </th>
       <th> Actions </th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="#task of tasks">
+    <tr *ngFor="#task of tasks; #i = index">
       <!-- <td>{{ task._id.$oid }}</td> -->
       <td>{{ task.description }}</td>
-      <td>{{ task.priority }}</td>
-      <td>
+      <!-- <td>{{ task.priority }}</td> -->
+      <td (click)="toggleStatus(task)">
         <span *ngIf="task.is_completed">
           Completed
         </span>
@@ -26,8 +28,8 @@
           Incompleted
         </span>
       </td>
-      <td> </td>
-      <td> <a > Show </a> </td>
+      <td> <a (click)="onSelect(task)" > Show </a></td>
+      <td> <a (click)="onDelete(task)" > Delete </a> </td>
     </tr>
   </tbody>
 </table>

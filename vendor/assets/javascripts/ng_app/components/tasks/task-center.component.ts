@@ -1,22 +1,28 @@
 import {Component}     from 'angular2/core';
-import {RouteConfig, RouterOutlet} from 'angular2/router';
+import {RouteConfig, RouterOutlet, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import { TasksListComponent }   from './tasks-list.component.ts';
-// import { NewTaskComponent } form './new-task.component.ts';
-// import {CrisisDetailComponent} from './crisis-detail.component.ts';
-// import {HTTP_PROVIDERS, Http} from 'angular2/http';
-// import {TasksService}         from './tasks.service.ts';
+import { TaskNewComponent } from './task-new.component.ts';
+import { TaskDetailsComponent } from './task-details.component.ts'
+import {HTTP_PROVIDERS, Http} from 'angular2/http';
 
 @Component({
   template: `
+    <div class="page-header">
+      <h1>Tasks</h1>
+      <a [routerLink]="['./NewTask']" class='btn btn-primary pull-right new-btn' >Add New Task</a>
+    </div>
     <router-outlet></router-outlet>
-    `,
-  directives: [RouterOutlet],
+    <a [routerLink]="['./Tasks']" class='btn btn-default pull-right' > Back </a>`,
+
+  directives: [RouterOutlet, ROUTER_DIRECTIVES],
+  providers: [HTTP_PROVIDERS],
   // providers: []
 })
 @RouteConfig([
-  { path: '/', name: 'TasksCenter', component: TasksListComponent, useAsDefault: true }
-  // { path: '/new', name: 'NewTask', component: NewTaskComponent }
+  { path: '/', name: 'Tasks', component: TasksListComponent, useAsDefault: true },
+  { path: '/new', name: 'NewTask', component: TaskNewComponent },
+  { path: '/:id', name: 'TaskDetails', component: TaskDetailsComponent }
 ])
 export class TaskCenterComponent {}
 

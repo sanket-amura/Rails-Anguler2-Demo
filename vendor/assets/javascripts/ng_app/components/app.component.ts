@@ -28,7 +28,7 @@ import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
     component: CrisisCenterComponent,
     useAsDefault: true
   },
-  { path: '/tasks-center/...', name: 'TasksCenter', component: TaskCenterComponent },
+  { path: '/tasks/...', name: 'Tasks', component: TaskCenterComponent },
   {path: '/heroes',   name: 'Heroes',     component: HeroListComponent},
   {path: '/hero/:id', name: 'HeroDetail', component: HeroDetailComponent},
   {path: '/disaster', name: 'Asteroid', redirectTo: ['CrisisCenter', 'CrisisDetail', {id:3}]}

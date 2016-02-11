@@ -2,13 +2,18 @@ import {provide} from 'angular2/core';
 
 import {bootstrap}        from 'angular2/platform/browser';
 
-import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, APP_BASE_HREF} from 'angular2/router';
+import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, ROUTER_BINDINGS, APP_BASE_HREF, LocationStrategy, HashLocationStrategy} from 'angular2/router';
 
 import {AppComponent}     from './components/app.component.ts';
 
 import {HTTP_BINDINGS, Http} from 'angular2/http';
 
-bootstrap(AppComponent, [ROUTER_PROVIDERS, HTTP_BINDINGS, provide(APP_BASE_HREF, { useValue: '/#/' }]);
+bootstrap(
+    AppComponent, [ROUTER_PROVIDERS,
+      HTTP_BINDINGS, ROUTER_BINDINGS,
+      provide(LocationStrategy, { useClass: HashLocationStrategy })]);
+
+    // provide(APP_BASE_HREF, { useValue: '/#/' })]);
 
 
 /*

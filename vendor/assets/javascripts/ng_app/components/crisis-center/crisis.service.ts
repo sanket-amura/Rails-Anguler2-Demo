@@ -1,5 +1,7 @@
 
 import {Injectable} from 'angular2/core';
+import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
+
 
 export class Crisis {
   constructor(public id: number, public name: string) { }
